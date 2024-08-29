@@ -1,0 +1,28 @@
+[
+    {
+        "codigo": 1,
+        "dni": "30541575",
+        "nombre": "Bernardo Dario Isamel Dominguez",
+        "fechaPago": "2024-08-15",
+        "rutina": 1,
+        "importe": 59.99,
+        "genero": true,
+        "foto": "ruta/juan.jpg",
+        "nombreRutina": "Rutina A",
+        "dias": 3,
+        "clave":"clave"
+    },
+    {
+        "codigo": 2,
+        "dni": "0987654321",
+        "nombre": "Ana Gómez",
+        "fechaPago": "2024-08-10",
+        "rutina": 2,
+        "importe": 49.99,
+        "genero": false,
+        "foto": "ruta/ana.jpg",
+        "nombreRutina": "Rutina B",
+        "dias": 3,
+        "clave":"clave"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "codigo": 1,
+        "nombreEjercicio": "Sentadillas",
+        "series": 3,
+        "repeticiones": 15,
+        "foto": "ruta/sentadillas.jpg",
+        "video": "ruta/sentadillas.mp4"
+    },
+    {
+        "codigo": 2,
+        "nombreEjercicio": "Flexiones",
+        "series": 3,
+        "repeticiones": 20,
+        "foto": "ruta/flexiones.jpg",
+        "video": "ruta/flexiones.mp4"
+    },
+    {
+        "codigo": 3,
+        "nombreEjercicio": "Abdominales",
+        "series": 3,
+        "repeticiones": 25,
+        "foto": "ruta/abdominales.jpg",
+        "video": "ruta/abdominales.mp4"
+    }
+]
