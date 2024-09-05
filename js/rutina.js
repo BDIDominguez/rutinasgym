@@ -1,10 +1,11 @@
 import { Usuario, Ejercicio } from "./objetos.js";
-import { cargarEjercicios } from "./persistencia.js";
+import { listarEjercicios } from "./persistencia.js";
 
 // rutina.js
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const usuarioJSON = sessionStorage.getItem('usuario');
-    const rutina = cargarEjercicios();
+    const rutina =  listarEjercicios();
 
     if (usuarioJSON && rutina) {
         const usuario = JSON.parse(usuarioJSON);
@@ -33,4 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Si no hay datos en sessionStorage, redirigir al login
         window.location.href = 'index.html';
     }
+});
+*/
+
+
+const rutina =  await listarEjercicios();
+console.log("Ejercicios existentes ",rutina)
+const contenedor = document.getElementById('ejerciciosContainer');
+rutina.forEach(element => {
+    element.insertarEnPagina(contenedor)
 });

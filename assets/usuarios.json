@@ -14,14 +14,14 @@
     },
     {
         "codigo": 2,
-        "dni": "0987654321",
-        "nombre": "Ana Gómez",
+        "dni": "30150502",
+        "nombre": "Ines Soledad Vasualdo",
         "fechaPago": "2024-08-10",
         "rutina": 2,
         "importe": 49.99,
         "genero": false,
-        "foto": "ruta/ana.jpg",
-        "nombreRutina": "Rutina B",
+        "foto": "ruta/Ines.jpg",
+        "nombreRutina": "Objetivo JLO",
         "dias": 3,
         "clave":"clave"
     }

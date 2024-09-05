@@ -1,12 +1,16 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f1e6e6f8;
     margin: 0;
+    
+}
+.login-container{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
 }
 
 /* Contenedor del formulario de login */
@@ -69,4 +73,23 @@ body {
     .login-container {
         padding: 15px 30px;
     }
+}
+
+
+/*  Contenedor de los Ejercicios del Usuario  */
+
+.contenedor-ejercicio {
+    background-color: hsla(0, 15%, 81%, 0.533);
+    display: inline-block;
+    border-radius: 15px;
+    border: 1.5px solid grey;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+
+    img {
+        width: 20%;
+        border: 2px solid red
+    }
+
 }

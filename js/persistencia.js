@@ -1,4 +1,8 @@
-// Función para cargar el archivo JSON
+/**
+ * Regresa una lista de Usuarios en la lista de usuarios.json
+ * 
+ * @returns {Lista} lista de usuarios
+ */
 async function cargarUsuarios() {
     try {
         const response = await fetch('../assets/usuarios.json');
@@ -13,7 +17,13 @@ async function cargarUsuarios() {
     }
 }
 
-// Función para autenticar al usuario
+/**
+ * Comprueba que el Usuario este registrado en el archivo json por medio de su DNI y su Clave
+ * 
+ * @param {Number} dni - DNI del usuario
+ * @param {Text} clave - Clave del Usuario
+ * @returns {Usuario} si existe el usuario regresa el mismo para su uso.
+ */
 async function autenticarUsuario(dni, clave) {
     const usuarios = await cargarUsuarios();
     if (!usuarios) {
@@ -27,10 +37,14 @@ async function autenticarUsuario(dni, clave) {
     return usuario || null;
 }
 
-import { Ejercicio } from "./objetos.js";
 
-// Función que Extrae todos los Ejercicio
-async function cargarEjercicios() {
+import { Ejercicio, Usuario } from "./objetos.js";
+/**
+ * extrae del archivo json todos los ejerciocios existentes
+ * 
+ * @returns lista con todos los ejercicios existentes
+ */
+async function listarEjercicios() {
     try {
         const response = await fetch('../assets/ejercicios.json');
         if (!response.ok){
@@ -44,7 +58,8 @@ async function cargarEjercicios() {
             ejercicio.series,
             ejercicio.repeticiones,
             ejercicio.foto,
-            ejercicio.video
+            ejercicio.video,
+            ejercicio.detalle
         ));
         
         return listaEjercicios;
@@ -55,6 +70,12 @@ async function cargarEjercicios() {
     }
     
 }
+
+
+
+
+
+
 // Exportar la función para su uso en otros archivos
-export { autenticarUsuario, cargarEjercicios };
+export { autenticarUsuario, listarEjercicios };
 
