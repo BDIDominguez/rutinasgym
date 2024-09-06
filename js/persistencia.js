@@ -38,7 +38,7 @@ async function autenticarUsuario(dni, clave) {
 }
 
 
-import { Ejercicio, Usuario } from "./objetos.js";
+import { Ejercicio, Rutina, Usuario } from "./objetos.js";
 /**
  * extrae del archivo json todos los ejerciocios existentes
  * 
@@ -72,10 +72,38 @@ async function listarEjercicios() {
 }
 
 
+async function rutinaUsuario(id) {
+    try {
+        const response = await fetch('../assets/rutinas.json');
+        if (!response.ok){
+            throw new Error('Error al cargar Rutinas')
+        }
+        const data = await response.json();
+
+        const listaRutina = data.map(rutina => new Rutina(
+            rutina.usuario,
+            rutina.ejercicio,
+            rutina.orden,
+            rutina.dia
+        ));
+        
+        const rutinaFiltrada = listaRutina.filter(rutina => rutina.usuario === id);
+        const rutinaOrdenada = rutinaFiltrada.sort((a,b) => {
+            if (a.dia !== b.dia){
+                return a.dia - b.dia;
+            }
+            return a.orden - b.orden;
+        })
+        return rutinaOrdenada
+
+    } catch (error) {
+        console.log("Error al consultar rutina  ", error)
+    }
+}
 
 
 
 
 // Exportar la función para su uso en otros archivos
-export { autenticarUsuario, listarEjercicios };
+export { autenticarUsuario, listarEjercicios, rutinaUsuario};
 

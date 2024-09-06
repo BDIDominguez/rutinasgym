@@ -1,5 +1,5 @@
 import { Usuario, Ejercicio } from "./objetos.js";
-import { listarEjercicios } from "./persistencia.js";
+import { listarEjercicios, rutinaUsuario } from "./persistencia.js";
 
 // rutina.js
 /*
@@ -37,10 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 */
 
+const usuarioGuardado = sessionStorage.getItem('usuario');
+const usuario = JSON.parse(usuarioGuardado);
+const lugarTitulo = document.getElementById('titulo-rutina');
+const titulo = document.createElement('h1');
+titulo.textContent = `Esta es tu rutina ${usuario.nombre}`
+lugarTitulo.appendChild(titulo);
+console.log("Nombre de Usuario: ", usuario.nombre)
 
-const rutina =  await listarEjercicios();
-console.log("Ejercicios existentes ",rutina)
 const contenedor = document.getElementById('ejerciciosContainer');
+const ejercicios =  await listarEjercicios();
+const rutina = await rutinaUsuario(usuario.codigo);
+let dia = 0;
+console.log("Rutina ", rutina)
 rutina.forEach(element => {
-    element.insertarEnPagina(contenedor)
+    if (element.dia > dia){
+        dia = element.dia;
+        const contenedorSubtitulo = document.createElement('div');
+        const subtitulo = document.createElement('h2');
+        subtitulo.textContent = `Dia numero ${dia} para ser como tu ${usuario.nombreRutina}`
+        contenedorSubtitulo.appendChild(subtitulo);
+        contenedor.appendChild(contenedorSubtitulo);
+    }
+    const ejercicio = ejercicios.find(ej => ej.codigo === element.ejercicio);
+    if (ejercicio){
+        ejercicio.insertarEnPagina(contenedor)
+    } else {
+        console.error(`No se encontró el ejercicio con código: ${element.ejercicio}`)
+    }
 });
